@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhea's Exclusive Early Access: Dynamic Perception</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; text-align: center; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        p { font-size: 1.2em; max-width: 600px; line-height: 1.5; }
+        form { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        label { display: block; margin: 20px 0 10px; font-size: 1.1em; }
+        input[type="text"], select { width: 80%; padding: 12px; border: none; border-radius: 10px; font-size: 1em; margin-bottom: 15px; }
+        button { background: #ff6b6b; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.2em; cursor: pointer; transition: transform 0.3s; }
+        button:hover { transform: scale(1.05); background: #ff5252; }
+        button:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .question { margin: 20px 0; }
+        .success { background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 15px; display: none; }
+        .pdf-link { display: none; }
+        .skate-emoji { font-size: 3em; animation: spin 2s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @media (max-width: 768px) { h1 { font-size: 2em; } }
+    </style>
+</head>
+<body>
+    <div class="skate-emoji">⛸️</div>
+    <h1>⛸️ Rhea's VIP Early Access Portal ⛸️</h1>
+    <p>Glide into exclusive access to my latest research paper: <strong>Dynamic Perception</strong> – How Prediction, Attention, and Neural Plasticity Shape What We Perceive!<br>Answer these fun skating-brain teaser questions to unlock. Perfect for iPad spins! 🧠✨</p>
+    
+    <form id="quizForm">
+        <div class="question">
+            <label>1. What's your ice queen name? (Case insensitive)</label>
+            <input type="text" id="name" required>
+        </div>
+        
+        <div class="question">
+            <label>2. If this research paper was an ice cream flavor, what would it be? (Be creative – any answer works! 🍦)</label>
+            <input type="text" id="flavor" required>
+        </div>
+        
+        <div class="question">
+            <label>3. Which superpower would help read this research paper?</label>
+            <select id="superpower" required>
+                <option value="">Choose your power!</option>
+                <option value="coffee">Infinite Coffee ☕</option>
+                <option value="focus">Laser Focus Beam 🧠</option>
+                <option value="sleep">Never-Ending Naps 😴</option>
+                <option value="all">ALL OF THE ABOVE! 🚀</option>
+            </select>
+        </div>
+        
+        <div class="question">
+            <label>4. During a crazy spin, what helps your brain not get dizzy? (Paper hint!)</label>
+            <select id="spin" required>
+                <option value="">Pick one!</option>
+                <option value="magic">Pure magic ✨</option>
+                <option value="predictions">Neuro predictions & plasticity!</option>
+                <option value="shoes">Fancy skates</option>
+            </select>
+        </div>
+        
+        <div class="question">
+            <label>5. Do you understand the vision? (Yes to enter!)</label>
+            <input type="text" id="vision" placeholder="Type 'Yes, I get it!' or similar" required>
+        </div>
+        
+        <button type="submit" id="submitBtn">Submit & Glide In! ⛸️</button>
+    </form>
+    
+    <div id="success" class="success">
+        <h2>🎉 Congrats, Rhea! You've been chosen as an Early Reader! 🎉</h2>
+        <p>Do you understand the vision? Your skater brain is primed for prediction, attention, and neural magic. Download the paper below – early access granted! Dive into how brains adapt like pros on ice. ⛸️🧠</p>
+        <a href="Dynamic-Perception_-How-Prediction-Attention-and-Neural-Plasticity-Shape-What-We-Perceive.pdf" download class="pdf-link" id="pdfLink">
+            <button>Download PDF Now! 📄</button>
+        </a>
+        <p style="font-size: 0.9em; margin-top: 20px;">Share your fave part with me later! Made with ❤️ from Regina.</p>
+    </div>
+
+    <script>
+        const correctName = 'rhea'; // Case insensitive
+        const correctSuperpower = 'all';
+        const correctSpin = 'predictions';
+        
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.toLowerCase().trim();
+            const superpower = document.getElementById('superpower').value;
+            const spin = document.getElementById('spin').value;
+            const vision = document.getElementById('vision').value.toLowerCase();
+            
+            if (name.includes(correctName) && superpower === correctSuperpower && spin === correctSpin && vision.includes('yes')) {
+                document.getElementById('quizForm').style.display = 'none';
+                document.getElementById('success').style.display = 'block';
+                document.getElementById('pdfLink').style.display = 'inline-block';
+            } else {
+                alert('Almost there, skating star! Double-check: Name=Rhea, Superpower=All, Spin=Predictions, Vision=Yes. Try again! ⛸️');
+            }
+        });
+    </script>
+</body>
+</html>
